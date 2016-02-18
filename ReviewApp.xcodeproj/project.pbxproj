@@ -14,6 +14,15 @@
 		B1EE02221C55DB26003C8915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1EE02201C55DB26003C8915 /* Main.storyboard */; };
 		B1EE02241C55DB26003C8915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1EE02231C55DB26003C8915 /* Assets.xcassets */; };
 		B1EE02271C55DB26003C8915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1EE02251C55DB26003C8915 /* LaunchScreen.storyboard */; };
+		B1EE02301C55DCD2003C8915 /* RVSegmentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE022F1C55DCD2003C8915 /* RVSegmentedViewController.m */; };
+		B1EE02331C5751FE003C8915 /* RVSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE02321C5751FE003C8915 /* RVSearchViewController.m */; };
+		B1EE02391C577034003C8915 /* RVHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE02381C577034003C8915 /* RVHistoryViewController.m */; };
+		B1EE023C1C67863F003C8915 /* RVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE023B1C67863F003C8915 /* RVItem.m */; };
+		B1EE02411C67928F003C8915 /* RVChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE02401C67928F003C8915 /* RVChannel.m */; };
+		B1EE02441C67963B003C8915 /* RVRakutenChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE02431C67963B003C8915 /* RVRakutenChannel.m */; };
+		B1EE02471C67A1DC003C8915 /* RVChannelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE02461C67A1DC003C8915 /* RVChannelManager.m */; };
+		B1EE024A1C70DE68003C8915 /* RVSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE02491C70DE68003C8915 /* RVSearchResultController.m */; };
+		B1EE024E1C71FC12003C8915 /* RVProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE024D1C71FC12003C8915 /* RVProductCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +38,24 @@
 		B1EE02231C55DB26003C8915 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1EE02261C55DB26003C8915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1EE02281C55DB26003C8915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1EE022E1C55DCBA003C8915 /* RVSegmentedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVSegmentedViewController.h; sourceTree = "<group>"; };
+		B1EE022F1C55DCD2003C8915 /* RVSegmentedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVSegmentedViewController.m; sourceTree = "<group>"; };
+		B1EE02311C5751E9003C8915 /* RVSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVSearchViewController.h; sourceTree = "<group>"; };
+		B1EE02321C5751FE003C8915 /* RVSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVSearchViewController.m; sourceTree = "<group>"; };
+		B1EE02371C57701F003C8915 /* RVHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVHistoryViewController.h; sourceTree = "<group>"; };
+		B1EE02381C577034003C8915 /* RVHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVHistoryViewController.m; sourceTree = "<group>"; };
+		B1EE023A1C67862A003C8915 /* RVItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RVItem.h; path = ../RVItem.h; sourceTree = "<group>"; };
+		B1EE023B1C67863F003C8915 /* RVItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVItem.m; sourceTree = "<group>"; };
+		B1EE023F1C67927F003C8915 /* RVChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVChannel.h; sourceTree = "<group>"; };
+		B1EE02401C67928F003C8915 /* RVChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVChannel.m; sourceTree = "<group>"; };
+		B1EE02421C67962C003C8915 /* RVRakutenChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVRakutenChannel.h; sourceTree = "<group>"; };
+		B1EE02431C67963B003C8915 /* RVRakutenChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVRakutenChannel.m; sourceTree = "<group>"; };
+		B1EE02451C67A1CB003C8915 /* RVChannelManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVChannelManager.h; sourceTree = "<group>"; };
+		B1EE02461C67A1DC003C8915 /* RVChannelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVChannelManager.m; sourceTree = "<group>"; };
+		B1EE02481C70DE50003C8915 /* RVSearchResultController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVSearchResultController.h; sourceTree = "<group>"; };
+		B1EE02491C70DE68003C8915 /* RVSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVSearchResultController.m; sourceTree = "<group>"; };
+		B1EE024C1C71FC01003C8915 /* RVProductCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVProductCell.h; sourceTree = "<group>"; };
+		B1EE024D1C71FC12003C8915 /* RVProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVProductCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +88,9 @@
 		B1EE02131C55DB26003C8915 /* ReviewApp */ = {
 			isa = PBXGroup;
 			children = (
+				B1EE024B1C71FBBC003C8915 /* View */,
+				B1EE023E1C678720003C8915 /* ViewModel */,
+				B1EE023D1C6786D7003C8915 /* Model */,
 				B1EE02171C55DB26003C8915 /* AppDelegate.h */,
 				B1EE02181C55DB26003C8915 /* AppDelegate.m */,
 				B1EE021A1C55DB26003C8915 /* FirstViewController.h */,
@@ -72,6 +102,14 @@
 				B1EE02251C55DB26003C8915 /* LaunchScreen.storyboard */,
 				B1EE02281C55DB26003C8915 /* Info.plist */,
 				B1EE02141C55DB26003C8915 /* Supporting Files */,
+				B1EE022E1C55DCBA003C8915 /* RVSegmentedViewController.h */,
+				B1EE022F1C55DCD2003C8915 /* RVSegmentedViewController.m */,
+				B1EE02311C5751E9003C8915 /* RVSearchViewController.h */,
+				B1EE02321C5751FE003C8915 /* RVSearchViewController.m */,
+				B1EE02371C57701F003C8915 /* RVHistoryViewController.h */,
+				B1EE02381C577034003C8915 /* RVHistoryViewController.m */,
+				B1EE02481C70DE50003C8915 /* RVSearchResultController.h */,
+				B1EE02491C70DE68003C8915 /* RVSearchResultController.m */,
 			);
 			path = ReviewApp;
 			sourceTree = "<group>";
@@ -82,6 +120,37 @@
 				B1EE02151C55DB26003C8915 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1EE023D1C6786D7003C8915 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B1EE023A1C67862A003C8915 /* RVItem.h */,
+				B1EE023B1C67863F003C8915 /* RVItem.m */,
+				B1EE023F1C67927F003C8915 /* RVChannel.h */,
+				B1EE02401C67928F003C8915 /* RVChannel.m */,
+				B1EE02421C67962C003C8915 /* RVRakutenChannel.h */,
+				B1EE02431C67963B003C8915 /* RVRakutenChannel.m */,
+				B1EE02451C67A1CB003C8915 /* RVChannelManager.h */,
+				B1EE02461C67A1DC003C8915 /* RVChannelManager.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B1EE023E1C678720003C8915 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		B1EE024B1C71FBBC003C8915 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B1EE024C1C71FC01003C8915 /* RVProductCell.h */,
+				B1EE024D1C71FC12003C8915 /* RVProductCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,10 +223,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1EE02331C5751FE003C8915 /* RVSearchViewController.m in Sources */,
+				B1EE02301C55DCD2003C8915 /* RVSegmentedViewController.m in Sources */,
 				B1EE021F1C55DB26003C8915 /* SecondViewController.m in Sources */,
+				B1EE023C1C67863F003C8915 /* RVItem.m in Sources */,
 				B1EE02191C55DB26003C8915 /* AppDelegate.m in Sources */,
+				B1EE02471C67A1DC003C8915 /* RVChannelManager.m in Sources */,
+				B1EE02411C67928F003C8915 /* RVChannel.m in Sources */,
+				B1EE024A1C70DE68003C8915 /* RVSearchResultController.m in Sources */,
+				B1EE02441C67963B003C8915 /* RVRakutenChannel.m in Sources */,
+				B1EE02391C577034003C8915 /* RVHistoryViewController.m in Sources */,
 				B1EE021C1C55DB26003C8915 /* FirstViewController.m in Sources */,
 				B1EE02161C55DB26003C8915 /* main.m in Sources */,
+				B1EE024E1C71FC12003C8915 /* RVProductCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +384,7 @@
 				B1EE022D1C55DB26003C8915 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
