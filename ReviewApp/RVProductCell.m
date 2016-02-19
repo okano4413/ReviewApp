@@ -36,13 +36,17 @@
     [self.contentView addSubview:_reviewLabel];
     
     // UIImageViewの作成
-   /* UIImage*    image;
-    image = [UIImage imageNamed:@"numberBackground.png"];
-    _productImageView = [[UIImageView alloc] initWithImage:image];
+    //UIImage*    image;
+    //mage = [UIImage imageNamed:@"numberBackground.png"];
+    //NSURL *url = [NSURL URLWithString:@"imageURL"];
+    //NSData *data = [NSData dataWithContentsOfURL:url];
+    //UIImage *image = [UIImage imageWithData:data];
+    //_productImageView = [[UIImageView alloc] initWithImage:image];
+    _productImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:_productImageView];
     
     // 数字のためのラベルの作成
-    _numberLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    /*_numberLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _numberLabel.font = [UIFont boldSystemFontOfSize:17.0f];
     _numberLabel.textColor = [UIColor whiteColor];
     _numberLabel.backgroundColor = [UIColor clearColor];
@@ -54,11 +58,7 @@
 
 -(void)setProductImageView:(NSString *)imageURL
 {
-    NSURL *url = [NSURL URLWithString:@"imageURL"];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *image = [UIImage imageWithData:data];
-    _productImageView = [[UIImageView alloc] initWithImage:image];
-    [self.contentView addSubview:_productImageView];
+    [self getThumbnailImageFromUrlWithString:imageURL];
 }
 
 - (void)layoutSubviews
@@ -95,5 +95,24 @@
     rect.size.height = 14.0f;
     _reviewLabel.frame = rect;
 }
+
+-(void)getThumbnailImageFromUrlWithString:(NSString *)url
+{
+    RVChannelManager *channelManager = [RVChannelManager sharedManager];
+    channelManager.delegate = self;
+    
+    [channelManager getImageFromUrlWithString:url];
+}
+
+-(void)updateProductImageView:(UIImage *)image
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // メインスレッドで処理をしたい内容、UIを変更など。
+        _productImageView = [[UIImageView alloc] initWithImage:image];
+        [self.contentView addSubview:_productImageView];
+    });
+    //NSLog(@"thmbnail_url: %@", imageURL);
+}
+
 
 @end

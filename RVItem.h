@@ -20,8 +20,8 @@
     NSString*   _price;             // 値段
     NSString*   _itemDescription;   // 記事の記述
     NSString*   _pubDate;           // 発行された日付
-    float  _reviewAverage;     // review平均
-    float  _reviewCount;       // review数
+    NSNumber  *_reviewAverage;     // review平均
+    NSNumber  *_reviewCount;       // review数
 }
 
 // プロパティ
@@ -34,8 +34,8 @@
 @property (nonatomic, retain) NSString* price;
 @property (nonatomic, retain) NSString* itemDescription;
 @property (nonatomic, retain) NSString* pubDate;
-@property (nonatomic, assign) float reviewAverage;
-@property (nonatomic, assign) float reviewCount;
+@property (nonatomic, retain) NSNumber* reviewAverage;
+@property (nonatomic, retain) NSNumber* reviewCount;
 
 
 @end

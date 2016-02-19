@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -188,7 +188,13 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ic-Sy-2fO">
                                 <rect key="frame" x="20" y="20" width="560" height="44"/>
                                 <items>
-                                    <navigationItem title="検索結果" id="Fb6-IL-eOL"/>
+                                    <navigationItem title="検索結果" id="Fb6-IL-eOL">
+                                        <barButtonItem key="rightBarButtonItem" title="cancel" id="Oxm-wM-xT3">
+                                            <connections>
+                                                <action selector="cancel:" destination="rEb-cu-nZf" id="OJm-N9-Qpw"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="azX-YY-yV5">
@@ -221,6 +227,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelBarButton" destination="Oxm-wM-xT3" id="bIC-Tk-noF"/>
                         <outlet property="tableView" destination="pDS-lP-lmX" id="gdh-BC-CC0"/>
                     </connections>
                 </viewController>

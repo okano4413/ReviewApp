@@ -58,7 +58,9 @@
     _price = [decoder decodeObjectForKey:@"price"];
     _itemDescription = [decoder decodeObjectForKey:@"itemDescription"];
     _pubDate = [decoder decodeObjectForKey:@"pubDate"];
-    
+    _reviewAverage = [decoder decodeObjectForKey:@"reviewAverage"];
+    _reviewCount = [decoder decodeObjectForKey:@"reviewCount"];
+
     return self;
 }
 
@@ -73,6 +75,8 @@
     [encoder encodeObject:_price forKey:@"price"];
     [encoder encodeObject:_itemDescription forKey:@"itemDescription"];
     [encoder encodeObject:_pubDate forKey:@"pubDate"];
+    [encoder encodeObject:_reviewAverage forKey:@"reviewAverage"];
+    [encoder encodeObject:_reviewCount forKey:@"reviewCount"];
 }
 
 //ARCにより明示的にdeallocを呼び出さなくても良くなった

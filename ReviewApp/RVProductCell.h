@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RVChannelManager.h"
 
-@interface RVProductCell : UITableViewCell
+@interface RVProductCell : UITableViewCell<RVChannelManagerDelegate>
 {
     UILabel*        _titleLabel;
     UILabel*        _reviewLabel;

@@ -28,7 +28,7 @@
 
 -(void)session:(NSString*)keyWord booksGenreId:(NSInteger *)genreId
 {
-    self.booksGenreId = [NSString stringWithFormat:@"%@%03d",@"&booksGenreId=",genreId];
+    self.booksGenreId = [NSString stringWithFormat:@"%@%03zd",@"&booksGenreId=",genreId];
     if([keyWord length] != 0){
         self.keyword = [NSString stringWithFormat:@"%@%@",@"&keyword=",[keyWord stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]];
         self.connectionUrlString = [NSString stringWithFormat:@"%@%@%@",self.apiUrlString, self.keyword, self.booksGenreId];
@@ -46,7 +46,7 @@
     NSArray *array = [[NSJSONSerialization JSONObjectWithData:data
                                                       options:NSJSONReadingAllowFragments
                                                         error:nil] valueForKey:@"Items"];
-   // NSLog(@"array= %@",[array[0] valueForKeyPath:@"Item.title"]);
+  // NSLog(@"array= %@",[array[0] valueForKeyPath:@"Item"]);
     NSUInteger count = array.count;
     for(int i=0; i < count; i++){
         RVItem *item = [[RVItem alloc] init];
@@ -57,10 +57,10 @@
         item.itemImageUrl = [array[i] valueForKeyPath:@"Item.smallImageUrl"];
         item.itemDescription = [array[i] valueForKeyPath:@"Item.itemCaption"];
         item.pubDate = [array[i] valueForKeyPath:@"Item.salesDate"];
-        item.reviewAverage = [[array[i] valueForKeyPath:@"Item.reviewAverage"] floatValue];
-        item.reviewCount = [[array[i] valueForKeyPath:@"Item.reviewCount"] floatValue];
-        NSLog(@"smallImageUrl= %@",item.itemImageUrl);
-        NSLog(@"reviewaverage= %f",item.reviewAverage);
+        item.reviewAverage = [array[i] valueForKeyPath:@"Item.reviewAverage"];
+        item.reviewCount = [array[i] valueForKeyPath:@"Item.reviewCount"];
+        //NSLog(@"smallImageUrl= %@",item.itemImageUrl);
+        //NSLog(@"reviewaverage= %@",[array[i] valueForKeyPath:@"Item.reviewAverage"]);
         [self.items addObject:item];
     }
    // self.title =[array[0] valueForKeyPath:@"Item.title"];

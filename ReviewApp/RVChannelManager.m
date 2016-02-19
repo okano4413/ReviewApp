@@ -197,6 +197,18 @@ static RVChannelManager*  _sharedInstance = nil;
     
 }
 
+-(void)getImageFromUrlWithString:(NSString *)url
+{
+    [self.rakutenChannel getImageFromUrlWithString:url];
+}
+-(void)didCompleteGetUIImage:(UIImage *) image
+{
+    if ([self.delegate respondsToSelector:@selector(updateProductImageView:)]) {
+        [self.delegate updateProductImageView:image];
+    }
+    
+}
+
 -(void)didCompleteSession:(NSData *)data
 {
     [_channels addObject:[self.rakutenChannel setItemsFromJsonData:data]];

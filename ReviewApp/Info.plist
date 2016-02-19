@@ -30,6 +30,15 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>thumbnail.image.rakuten.co.jp</key>
+			<dict>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
 			<key>app.rakuten.co.jp</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>

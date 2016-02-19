@@ -14,6 +14,7 @@
 @optional
 //各チャンネルで通信が完了した時に呼び出される
 -(void)didCompleteSession:(NSData *)data;
+-(void)didCompleteGetUIImage:(UIImage *)image;
 
 @end
 
@@ -43,5 +44,5 @@
 @property(weak,nonatomic) id<RVChannelDelegate> delegate;
 
 -(void)session;
-
+-(void)getImageFromUrlWithString:(NSString *) url;
 @end

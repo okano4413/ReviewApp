@@ -16,6 +16,7 @@
 
 @optional
 -(void)updateView;
+-(void)updateProductImageView:(UIImage *)image;
 
 @end
 
@@ -43,5 +44,6 @@
 - (void)save;
 
 -(void)searchChannel:(NSString *)channel keyword:(NSString *)keyword booksGenreId:(NSInteger *)booksGenreId;
+-(void)getImageFromUrlWithString:(NSString *) url;
 
 @end
