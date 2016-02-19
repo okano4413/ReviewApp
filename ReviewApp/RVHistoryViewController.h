@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RVRakutenAPIController.h"
+//#import "RVRakutenAPIController.h"
 #import "RVChannelManager.h"
 @interface RVHistoryViewController : UIViewController<RVChannelManagerDelegate>
 

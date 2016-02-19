@@ -101,14 +101,17 @@
                                       reuseIdentifier:CellIdentifier];
     }
     RVItem *item = self.rakuten.items[indexPath.row];
+    NSLog(@"%@", item.itemImageUrl);
+        NSLog(@"%@", item.itemUrl);
     //NSLog(@"reviewaverage %f", item.reviewAverage);
     //NSLog(@"reviewaverage %@",[NSString stringWithFormat:@"%f",item.reviewAverage]);
         switch (indexPath.section) {
         case 0:
             //cell.titleLabel.text = self.rakuten.items[indexPath.row];
             cell.titleLabel.text = item.title;
-            cell.reviewLabel.text = [NSString stringWithFormat:@"%f",item.reviewAverage];
-            [cell setProductImageView:item.itemImageUrl];
+            cell.reviewLabel.text = [NSString stringWithFormat:@"%@",item.reviewAverage];
+                //NSLog(@"itemImageUrl %@", item.itemImageUrl);
+            [cell setProductImageView:@"http://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9610/9784056109610.jpg?_ex=64x64"];
             
             break;
             //case 1:
@@ -119,6 +122,9 @@
     }
     
     return cell;
+}
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

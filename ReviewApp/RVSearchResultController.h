@@ -19,9 +19,10 @@
 }
 
 @property (strong, nonatomic) NSString *keyword;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic,strong) NSArray *dataSourceSearch;
 @property (nonatomic,weak) RVRakutenChannel *rakuten;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelBarButton;
 
 @end
