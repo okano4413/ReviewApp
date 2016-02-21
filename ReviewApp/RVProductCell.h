@@ -18,6 +18,7 @@
 
 @property (nonatomic, retain) UILabel* titleLabel;
 @property (nonatomic, retain) UILabel* reviewLabel;
--(void)setProductImageView:(NSString *)imageURL;
+
+- (void)setThumbnailImageView:(NSString *)imageURL;
 
 @end

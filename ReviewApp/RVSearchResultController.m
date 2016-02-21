@@ -38,10 +38,11 @@
    // NSLog(@"rakuten %@", item.title);
     dispatch_async(dispatch_get_main_queue(), ^{
         // メインスレッドで処理をしたい内容、UIを変更など。
-        [self.tableView reloadData];
-      
+        //NSLog(@"現在の処理：reloadData");
+        //[self.tableView reloadData];
+        [self updateVisibleCells];
     });
-    
+
 }
 
 /**
@@ -100,19 +101,18 @@
         cell = [[RVProductCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:CellIdentifier];
     }
-    RVItem *item = self.rakuten.items[indexPath.row];
-    NSLog(@"%@", item.itemImageUrl);
-        NSLog(@"%@", item.itemUrl);
-    //NSLog(@"reviewaverage %f", item.reviewAverage);
-    //NSLog(@"reviewaverage %@",[NSString stringWithFormat:@"%f",item.reviewAverage]);
+ /*   RVItem *item = self.rakuten.items[indexPath.row];
+  //  dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         switch (indexPath.section) {
-        case 0:
+            case 0:{
             //cell.titleLabel.text = self.rakuten.items[indexPath.row];
             cell.titleLabel.text = item.title;
             cell.reviewLabel.text = [NSString stringWithFormat:@"%@",item.reviewAverage];
                 //NSLog(@"itemImageUrl %@", item.itemImageUrl);
+            dispatch_async(queue, ^{
             [cell setProductImageView:@"http://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9610/9784056109610.jpg?_ex=64x64"];
-            
+            });
+            }
             break;
             //case 1:
             //    cell.textLabel.text = self.dataSourceAndroid[indexPath.row];
@@ -120,10 +120,40 @@
         default:
             break;
     }
-    
+   */ 
     return cell;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 80.0f;
+}
+
+- (void)updateCell:(RVProductCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    RVItem *item = self.rakuten.items[indexPath.row];
+    //NSLog(@"indexpath.row %ld",(long)indexPath.row);
+    cell.titleLabel.text = item.title;
+    cell.reviewLabel.text = [NSString stringWithFormat:@"%@",item.reviewAverage];
+    [cell setThumbnailImageView:@"http://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9610/9784056109610.jpg?_ex=64x64"];
+    
+}
+
+// 画面上に見えているセルの表示更新
+- (void)updateVisibleCells {
+    for (RVProductCell *cell in [self.tableView visibleCells]){
+        [self updateCell:cell atIndexPath:[self.tableView indexPathForCell:cell]];
+    }
+}
+
 - (IBAction)cancel:(id)sender {
+    
+   /* dispatch_async(dispatch_get_main_queue(), ^{
+        // メインスレッドで処理をしたい内容、UIを変更など。
+        NSLog(@"現在の処理：reloadData");
+        [self.tableView reloadData];
+        
+    });*/
+
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

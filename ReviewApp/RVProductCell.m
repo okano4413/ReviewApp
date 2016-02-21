@@ -20,7 +20,7 @@
     if (!self) {
         return nil;
     }
-    
+
     // titleラベルの作成
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
@@ -36,13 +36,15 @@
     [self.contentView addSubview:_reviewLabel];
     
     // UIImageViewの作成
-    //UIImage*    image;
-    //mage = [UIImage imageNamed:@"numberBackground.png"];
+    UIImage*    image;
+    image = [UIImage imageNamed:@"loading_throbber.png"];
     //NSURL *url = [NSURL URLWithString:@"imageURL"];
     //NSData *data = [NSData dataWithContentsOfURL:url];
     //UIImage *image = [UIImage imageWithData:data];
-    //_productImageView = [[UIImageView alloc] initWithImage:image];
-    _productImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    _productImageView = [[UIImageView alloc] initWithImage:image];
+    //_productImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    //_productImageView.tag = 10;
+    NSLog(@"_productImageView path %p", &_productImageView);
     [self.contentView addSubview:_productImageView];
     
     // 数字のためのラベルの作成
@@ -56,9 +58,15 @@
     return self;
 }
 
--(void)setProductImageView:(NSString *)imageURL
-{
-    [self getThumbnailImageFromUrlWithString:imageURL];
+- (void)setThumbnailImageView:(NSString *)imageURL{
+    /*dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+       [self getThumbnailImageFromUrlWithString:imageURL];
+    });*/
+    //[[[NSOperationQueue alloc] init] addOperationWithBlock:^{
+   //         NSLog(@"現在の処理：serProductImageView");
+        [self getThumbnailImageFromUrlWithString:imageURL];
+    //}];
 }
 
 - (void)layoutSubviews
@@ -75,6 +83,7 @@
     // productImageViewのレイアウト
     rect.origin = CGPointZero;
     rect.size = _productImageView.frame.size;
+    rect.size = CGSizeMake(70,70);
     _productImageView.frame = rect;
     
     // numberLabelのレイアウト
@@ -83,6 +92,7 @@
    */ 
     // titleLabelのレイアウト
     rect.origin.x = CGRectGetMaxX(_productImageView.frame) + 4.0f;
+    //rect.origin.x = 70.0f;
     rect.origin.y = CGRectGetMinY(bounds) + 4.0f;
     rect.size.width = CGRectGetWidth(bounds) - CGRectGetMinX(rect);
     rect.size.height = 22.0f;
@@ -106,10 +116,14 @@
 
 -(void)updateProductImageView:(UIImage *)image
 {
+            NSLog(@"現在の処理：updateProductImageView");
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         // メインスレッドで処理をしたい内容、UIを変更など。
-        _productImageView = [[UIImageView alloc] initWithImage:image];
-        [self.contentView addSubview:_productImageView];
+      //  _productImageView = [[UIImageView alloc] initWithImage:image];
+      //  UIImageView *uiImageView = (UIImageView*)[self.contentView viewWithTag:10];
+       
+       self->_productImageView.image = image;
     });
     //NSLog(@"thmbnail_url: %@", imageURL);
 }
