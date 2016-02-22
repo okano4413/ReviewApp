@@ -55,6 +55,7 @@
     _author = [decoder decodeObjectForKey:@"author"];
     _publisherName = [decoder decodeObjectForKey:@"publisherName"];
     _itemUrl= [decoder decodeObjectForKey:@"itemUrl"];
+    _itemImageUrl = [decoder decodeObjectForKey:@"itemImageUrl"];
     _price = [decoder decodeObjectForKey:@"price"];
     _itemDescription = [decoder decodeObjectForKey:@"itemDescription"];
     _pubDate = [decoder decodeObjectForKey:@"pubDate"];
@@ -72,6 +73,7 @@
     [encoder encodeObject:_author forKey:@"author"];
     [encoder encodeObject:_publisherName forKey:@"publisherName"];
     [encoder encodeObject:_itemUrl forKey:@"itemUrl"];
+    [encoder encodeObject:_itemImageUrl forKey:@"itemImageUrl"];
     [encoder encodeObject:_price forKey:@"price"];
     [encoder encodeObject:_itemDescription forKey:@"itemDescription"];
     [encoder encodeObject:_pubDate forKey:@"pubDate"];

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImageView+WebCache.h"
 #import "RVChannelManager.h"
 #import "RVRakutenChannel.h"
 #import "RVItem.h"

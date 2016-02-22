@@ -12,6 +12,7 @@
 
 @synthesize titleLabel = _titleLabel;
 @synthesize reviewLabel = _reviewLabel;
+@synthesize productImageView = _productImageView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier
 {
@@ -65,7 +66,10 @@
     });*/
     //[[[NSOperationQueue alloc] init] addOperationWithBlock:^{
    //         NSLog(@"現在の処理：serProductImageView");
-        [self getThumbnailImageFromUrlWithString:imageURL];
+       //[self getThumbnailImageFromUrlWithString:imageURL];
+    NSURL *url = [NSURL URLWithString:imageURL];
+    //NSLog(@"url = %@", NSStringFromClass([url class]));
+    [_productImageView sd_setImageWithURL:url placeholderImage:nil ];
     //}];
 }
 

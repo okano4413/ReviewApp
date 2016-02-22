@@ -101,6 +101,7 @@
         cell = [[RVProductCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:CellIdentifier];
     }
+    
  /*   RVItem *item = self.rakuten.items[indexPath.row];
   //  dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         switch (indexPath.section) {
@@ -134,7 +135,9 @@
     //NSLog(@"indexpath.row %ld",(long)indexPath.row);
     cell.titleLabel.text = item.title;
     cell.reviewLabel.text = [NSString stringWithFormat:@"%@",item.reviewAverage];
-    [cell setThumbnailImageView:@"http://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9610/9784056109610.jpg?_ex=64x64"];
+    //[cell.productImageView sd_setImageWithUrl:[NSURL URLWithString:@"http://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9610/9784056109610.jpg?_ex=64x64"]];
+    NSLog(@"thumbnail_url = %@", item);
+    [cell setThumbnailImageView:item.itemImageUrl];
     
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImageView+WebCache.h"
 #import "RVChannelManager.h"
 
 @interface RVProductCell : UITableViewCell<RVChannelManagerDelegate>
@@ -18,6 +19,7 @@
 
 @property (nonatomic, retain) UILabel* titleLabel;
 @property (nonatomic, retain) UILabel* reviewLabel;
+@property (nonatomic, retain) UIImageView *productImageView;
 
 - (void)setThumbnailImageView:(NSString *)imageURL;
 
