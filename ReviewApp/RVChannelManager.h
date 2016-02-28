@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIImageView+WebCache.h"
 #import "RVChannel.h"
 #import "RVRakutenChannel.h"
 
@@ -17,7 +16,7 @@
 
 @optional
 -(void)updateView;
--(void)updateProductImageView:(UIImage *)image;
+//-(void)updateProductImageView:(UIImage *)image;
 
 @end
 
@@ -44,7 +43,7 @@
 - (void)load;
 - (void)save;
 
--(void)searchChannel:(NSString *)channel keyword:(NSString *)keyword booksGenreId:(NSInteger *)booksGenreId;
--(void)getImageFromUrlWithString:(NSString *) url;
+- (void)searchChannel:(NSString *)channel keyword:(NSString *)keyword booksGenreId:(NSInteger *)booksGenreId;
+- (void)removeChannelInfo:(NSUInteger *)index;
 
 @end

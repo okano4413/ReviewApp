@@ -27,6 +27,10 @@
 {
     [super viewDidLoad];
     
+    UITabBarController *tbc = self.tabBarController;
+    UITabBarItem *tbi = [tbc.tabBar.items objectAtIndex:0];
+    tbi.title = @"検索";
+    tbi.image = [UIImage imageNamed:@"search.png"];
     // SegmentedControlの値により異なるControllerを取得する
     UIViewController *vc = [self viewControllerForSegmentIndex:self.segmentedViewControl.selectedSegmentIndex];
     // 取得したコントローラを子コントローラとして追加する
@@ -35,7 +39,6 @@
     // 子コントローラのViewを親コントローラのContent表示領域のサイズにする
     // スクロール対応していない場合などは画面から見切れる可能性があるので気をつけてください
     vc.view.frame = self.contentView.bounds;
-    
     [self.contentView addSubview:vc.view];
     self.currentViewController = vc;
 }

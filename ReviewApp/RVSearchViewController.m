@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (nonatomic,strong) NSArray *dataSourceSearch;
+@property (weak, nonatomic) IBOutlet UIButton *SearchButton;
 
 @end
 
@@ -22,12 +23,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    UITabBarController *tbc = self.tabBarController;
+    UITabBarItem *tbi = [tbc.tabBar.items objectAtIndex:0];
+    tbi.title = @"検索";
+    tbi.image = [UIImage imageNamed:@"search.png"];
     
-    // デリゲートメソッドをこのクラスで実装する(ちょっと何言ってるかわかんないです)
+    // デリゲートメソッドをこのクラスで実装する
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.dataSourceSearch = @[@"ジャンル",@"価格帯",@"除外キーワード"];
+    self.dataSourceSearch = @[@"ジャンル",@"価格帯",@"除外キーワード",@"検索履歴"];
+    self.dataLabel = @[@"指定なし", @"本", @"CD", @"DVD", @"PCソフト・周辺機器", @"洋書", @"ゲーム", @"雑誌"];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self updateVisibleCells];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,13 +99,17 @@
     
     if (!cell) {
         // 再利用できない場合は新規で作成
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
                                       reuseIdentifier:CellIdentifier];
     }
     
     switch (indexPath.section) {
         case 0:
             cell.textLabel.text = self.dataSourceSearch[indexPath.row];
+            if(indexPath.row == 0){
+                NSInteger userGenre = [[RVUserDefault sharedUserDefault] getIntValueForKey:@"INT_GENREID"];
+                cell.detailTextLabel.text = self.dataLabel[userGenre];
+            }
             break;
         //case 1:
         //    cell.textLabel.text = self.dataSourceAndroid[indexPath.row];
@@ -106,5 +121,51 @@
     return cell;
 }
 
+//cellが選択された時に呼ばれる
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row == 0) {
+        [self performSegueWithIdentifier:@"GenreSelect" sender:self];
+    }
+}
+
+- (void)updateCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0:{
+            NSInteger userGenre = [[RVUserDefault sharedUserDefault] getIntValueForKey:@"INT_GENREID"];
+            cell.detailTextLabel.text = self.dataLabel[userGenre];
+            }
+            break;
+        default:
+            break;
+    }
+    
+}
+
+// 画面上に見えているセルの表示更新
+- (void)updateVisibleCells {
+    NSLog(@"updateVisibleCells");
+    for (UITableViewCell *cell in [self.tableView visibleCells]){
+        [self updateCell:cell atIndexPath:[self.tableView indexPathForCell:cell]];
+    }
+}
+
+//searchボタンが押された時によばれる
+- (IBAction)Search:(id)sender {
+    
+    [self performSegueWithIdentifier:@"SearchResult" sender:self];
+   
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Segueの特定
+    if ( [[segue identifier] isEqualToString:@"SearchResult"] ) {
+        // UINavigationController *navController = (UINavigationController*)[segue destinationViewController];
+        RVSearchResultController *searchResultController = [segue destinationViewController];
+        //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
+        searchResultController.keyword = self.searchBar.text;
+        searchResultController.genreId = [[RVUserDefault sharedUserDefault] getIntValueForKey:@"INT_GENREID"];
+    }
+}
 
 @end

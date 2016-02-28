@@ -8,16 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol RVGETImageDelegate <NSObject>
+@protocol RVGetImageDelegate <NSObject>
 
 @optional
-
-- (void) didCompleteGetImage
-@end
+- (void) didCompleteGetImage:(UIImage *) image;
 
 @end
 
-@interface
+@interface RVGetImage : NSObject
+{
+    NSString *_url;
+}
 
+@property(weak,nonatomic) id<RVGetImageDelegate> delegate;
+
+- (void) getUIImageFromUrlLWithString:(NSString *) url;
 
 @end

@@ -11,17 +11,22 @@
 @implementation RVSearchResultController
 
 @synthesize keyword = _keyword;
+@synthesize genreId = _genreId;
+
 @synthesize tableView = _tableView;
 @synthesize rakuten = _rakuten;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    //self.tableView.contentSize = CGSizeMake(self.tableView.), <#CGFloat height#>)();
+    //NSLog(@"Height %f",self.tableView.);
     // デリゲートメソッドをこのクラスで実装する
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [RVChannelManager sharedManager].delegate = self;
-    [[RVChannelManager sharedManager] searchChannel:@"rakuten" keyword:self.keyword booksGenreId:000];
+    [[RVChannelManager sharedManager] searchChannel:@"rakuten" keyword:self.keyword booksGenreId:self.genreId];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,13 +34,14 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)updateView {
+-(void)updateView{
     //NSLog(@"test");
 
-    [[RVChannelManager sharedManager] load];
+    //[[RVChannelManager sharedManager] load];
     self.rakuten = [RVChannelManager sharedManager].channels[0];
    //RVItem *item = self.rakuten.items[0];
    // NSLog(@"rakuten %@", item.title);
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
     dispatch_async(dispatch_get_main_queue(), ^{
         // メインスレッドで処理をしたい内容、UIを変更など。
         //NSLog(@"現在の処理：reloadData");
@@ -60,7 +66,7 @@
     switch (section) {
         case 0:
             //dataCount = self.dataSourceSearch.count;
-            dataCount = 5;
+            dataCount = 10;
             break;
             //case 1:
             //    dataCount = self.dataSourceAndroid.count;
@@ -101,10 +107,7 @@
         cell = [[RVProductCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:CellIdentifier];
     }
-    
- /*   RVItem *item = self.rakuten.items[indexPath.row];
-  //  dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        switch (indexPath.section) {
+  /*      switch (indexPath.section) {
             case 0:{
             //cell.titleLabel.text = self.rakuten.items[indexPath.row];
             cell.titleLabel.text = item.title;
@@ -133,11 +136,7 @@
 - (void)updateCell:(RVProductCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     RVItem *item = self.rakuten.items[indexPath.row];
     //NSLog(@"indexpath.row %ld",(long)indexPath.row);
-    cell.titleLabel.text = item.title;
-    cell.reviewLabel.text = [NSString stringWithFormat:@"%@",item.reviewAverage];
-    //[cell.productImageView sd_setImageWithUrl:[NSURL URLWithString:@"http://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9610/9784056109610.jpg?_ex=64x64"]];
-    NSLog(@"thumbnail_url = %@", item);
-    [cell setThumbnailImageView:item.itemImageUrl];
+    [cell setCellDataFromItem:item];
     
 }
 
@@ -156,7 +155,7 @@
         [self.tableView reloadData];
         
     });*/
-
+    [[RVChannelManager sharedManager] removeChannelInfo:0];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

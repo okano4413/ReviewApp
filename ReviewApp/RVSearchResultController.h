@@ -17,9 +17,12 @@
 @interface RVSearchResultController : UIViewController<RVChannelManagerDelegate, UITableViewDelegate, UITableViewDataSource>
 {
     NSString *keyword;
+    NSInteger *genreId;
 }
 
 @property (strong, nonatomic) NSString *keyword;
+@property (nonatomic) NSInteger genreId;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic,strong) NSArray *dataSourceSearch;

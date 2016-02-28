@@ -12,7 +12,9 @@
 
 @synthesize titleLabel = _titleLabel;
 @synthesize reviewLabel = _reviewLabel;
+@synthesize reviewStarImageView = _reviewStarImageView;
 @synthesize productImageView = _productImageView;
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier
 {
@@ -45,9 +47,13 @@
     _productImageView = [[UIImageView alloc] initWithImage:image];
     //_productImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     //_productImageView.tag = 10;
-    NSLog(@"_productImageView path %p", &_productImageView);
+    //NSLog(@"_productImageView path %p", &_productImageView);
     [self.contentView addSubview:_productImageView];
     
+    //評価スター
+    UIImage *star = [UIImage imageNamed:@"ico_grade6_0.gif"];
+    _reviewStarImageView = [[UIImageView alloc] initWithImage:star];
+    [self.contentView addSubview:_reviewStarImageView];
     // 数字のためのラベルの作成
     /*_numberLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _numberLabel.font = [UIFont boldSystemFontOfSize:17.0f];
@@ -59,18 +65,45 @@
     return self;
 }
 
-- (void)setThumbnailImageView:(NSString *)imageURL{
-    /*dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(queue, ^{
-       [self getThumbnailImageFromUrlWithString:imageURL];
-    });*/
-    //[[[NSOperationQueue alloc] init] addOperationWithBlock:^{
-   //         NSLog(@"現在の処理：serProductImageView");
-       //[self getThumbnailImageFromUrlWithString:imageURL];
-    NSURL *url = [NSURL URLWithString:imageURL];
-    //NSLog(@"url = %@", NSStringFromClass([url class]));
-    [_productImageView sd_setImageWithURL:url placeholderImage:nil ];
-    //}];
+- (void)setCellDataFromItem:(RVItem *)item{
+    _titleLabel.text = item.title;
+    _reviewLabel.text = [NSString stringWithFormat:@"%@",item.reviewAverage];
+    //NSLog(@"_productImageView path %p", &_productImageView);
+
+    float reviewValue = [item.reviewAverage floatValue];
+    //NSLog(@"review %f", reviewValue);
+
+    if (reviewValue ==  0.0f) {
+        _reviewStarImageView.image = [UIImage imageNamed:@"ico_grade6_0.gif"];
+    }else if( 0.0f < reviewValue && reviewValue <= 0.5f){
+        _reviewStarImageView.image = [UIImage imageNamed:@"ico_grade6_h.gif"];
+    }else if((float) 0.5 < reviewValue  && reviewValue <= (float) 1.0){
+        _reviewStarImageView.image = [UIImage imageNamed:@"ico_grade6_1.gif"];
+    }else if((float) 1.0 < reviewValue  && reviewValue <= (float) 1.5){
+        _reviewStarImageView.image = [UIImage imageNamed:@"ico_grade6_1h.gif"];
+    }else if((float) 1.5 < reviewValue  && reviewValue <= (float) 2.0){
+        _reviewStarImageView.image = [UIImage imageNamed:@"ico_grade6_2.gif"];
+    }else if((float) 2.0 < reviewValue  && reviewValue <= (float) 2.5){
+        _reviewStarImageView.image = [UIImage imageNamed:@"ico_grade6_2h.gif"];
+    }else if((float) 2.5 < reviewValue  && reviewValue <= (float) 3.0){
+        _reviewStarImageView.image = [UIImage imageNamed:@"ico_grade6_3.gif"];
+    }else if((float) 3.0 < reviewValue  && reviewValue <= (float) 3.5){
+        _reviewStarImageView.image = [UIImage imageNamed:@"ico_grade6_3h.gif"];
+    }else if((float) 3.5 < reviewValue  && reviewValue <= (float) 4.0){
+        _reviewStarImageView.image = [UIImage imageNamed:@"ico_grade6_4.gif"];
+    }else if(4.0f < reviewValue  && reviewValue <= 4.5f){
+        _reviewStarImageView.image = [UIImage imageNamed:@"ico_grade6_4h.gif"];
+    }else if(4.5f < reviewValue  && reviewValue <= 5.0f){
+        _reviewStarImageView.image = [UIImage imageNamed:@"ico_grade6_5.gif"];
+    }
+    
+    RVGetImage *rvgetimage = [[RVGetImage alloc]init];
+    rvgetimage.delegate = self;
+    [rvgetimage getUIImageFromUrlLWithString:item.itemImageUrl];
+}
+
+- (void)didCompleteGetImage:(UIImage *) image{
+    _productImageView.image = image;
 }
 
 - (void)layoutSubviews
@@ -105,18 +138,19 @@
     // reviewLabelのレイアウト
     rect.origin.x = CGRectGetMinX(_titleLabel.frame);
     rect.origin.y = CGRectGetMaxY(_titleLabel.frame);
-    rect.size.width = CGRectGetWidth(_titleLabel.frame);
-    rect.size.height = 14.0f;
+    rect.size.width = CGRectGetWidth(_titleLabel.frame)/3;
+    rect.size.height = 20.0f;
     _reviewLabel.frame = rect;
+    
+    // reviewStarのレイアウト
+    rect.origin.x = CGRectGetMaxX(_reviewLabel.frame) + 4.0f;
+    rect.origin.y = CGRectGetMaxY(_titleLabel.frame);
+    rect.size.width = CGRectGetWidth(_titleLabel.frame)/3;
+    rect.size.height = 20.0f;
+    _reviewStarImageView.frame = rect;
+
 }
 
--(void)getThumbnailImageFromUrlWithString:(NSString *)url
-{
-    RVChannelManager *channelManager = [RVChannelManager sharedManager];
-    channelManager.delegate = self;
-    
-    [channelManager getImageFromUrlWithString:url];
-}
 
 -(void)updateProductImageView:(UIImage *)image
 {

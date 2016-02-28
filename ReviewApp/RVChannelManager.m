@@ -187,6 +187,11 @@ static RVChannelManager*  _sharedInstance = nil;
     [self doRakutenSession:keyword booksGenreId:booksGenreId];
     
 }
+- (void)removeChannelInfo:(NSUInteger *)index{
+    NSLog(@"nsuinteger %zd", index);
+    [_channels removeObjectAtIndex:(unsigned long)index];
+}
+
 
 -(void)doRakutenSession:(NSString *)keyword booksGenreId:(NSInteger *)booksGanreId
 {
@@ -197,23 +202,10 @@ static RVChannelManager*  _sharedInstance = nil;
     
 }
 
--(void)getImageFromUrlWithString:(NSString *)url
-{
-    [self.rakutenChannel getImageFromUrlWithString:url];
-}
--(void)didCompleteGetUIImage:(UIImage *) image
-{
-    if ([self.delegate respondsToSelector:@selector(updateProductImageView:)]) {
-        [self.delegate updateProductImageView:image];
-    }
-    
-}
-
 -(void)didCompleteSession:(NSData *)data
 {
     [_channels addObject:[self.rakutenChannel setItemsFromJsonData:data]];
-    [self save];
-    
+    //[self save];
     if ([self.delegate respondsToSelector:@selector(updateView)]) {
         [self.delegate updateView];
     }

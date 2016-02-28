@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RVSearchResultController.h"
+#import "RVUserDefault.h"
+#import "RVGenreTableController.h"
 
 @interface RVSearchViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate>
-
+    @property (nonatomic,strong) NSArray *dataLabel;
 @end
