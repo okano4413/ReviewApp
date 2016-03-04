@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "RVImageCache.h"
 @protocol RVGetImageDelegate <NSObject>
 
 @optional

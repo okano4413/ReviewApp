@@ -178,5 +178,12 @@
     NSLog(@"viewDidDisappear %@", topController);
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    RVProductCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *urlString = cell.url;
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+    
+}
 
 @end

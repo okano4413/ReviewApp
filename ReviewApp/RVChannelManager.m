@@ -121,7 +121,8 @@ static RVChannelManager*  _sharedInstance = nil;
     // ドキュメントパスを取得する
     NSArray*    paths;
     NSString*   path;
-    paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+   // paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     if ([paths count] < 1) {
         return nil;
     }
@@ -188,7 +189,7 @@ static RVChannelManager*  _sharedInstance = nil;
     
 }
 - (void)removeChannelInfo:(NSUInteger *)index{
-    NSLog(@"nsuinteger %zd", index);
+    //NSLog(@"nsuinteger %zd", index);
     [_channels removeObjectAtIndex:(unsigned long)index];
 }
 

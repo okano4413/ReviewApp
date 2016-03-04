@@ -17,12 +17,14 @@
     UILabel*        _reviewLabel;
     UIImageView*    _reviewStarImageView;
     UIImageView*    _productImageView;
+    NSString *url;
 }
 
 @property (nonatomic, retain) UILabel* titleLabel;
 @property (nonatomic, retain) UILabel* reviewLabel;
 @property (nonatomic, retain) UIImageView *reviewStarImageView;
 @property (nonatomic, retain) UIImageView *productImageView;
+@property (nonatomic, retain) NSString *url;
 
 - (void)setCellDataFromItem:(RVItem *) item;
 @end

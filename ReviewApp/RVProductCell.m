@@ -14,6 +14,7 @@
 @synthesize reviewLabel = _reviewLabel;
 @synthesize reviewStarImageView = _reviewStarImageView;
 @synthesize productImageView = _productImageView;
+@synthesize url = _url;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier
@@ -68,6 +69,7 @@
 - (void)setCellDataFromItem:(RVItem *)item{
     _titleLabel.text = item.title;
     _reviewLabel.text = [NSString stringWithFormat:@"%@",item.reviewAverage];
+    _url = item.itemUrl;
     //NSLog(@"_productImageView path %p", &_productImageView);
 
     float reviewValue = [item.reviewAverage floatValue];
@@ -103,7 +105,9 @@
 }
 
 - (void)didCompleteGetImage:(UIImage *) image{
+    NSLog(@"didCompleteGetImage");
     _productImageView.image = image;
+
 }
 
 - (void)layoutSubviews

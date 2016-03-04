@@ -42,7 +42,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger dataCount;
-    NSLog(@"datacount: %@", _dataLabel);
+   // NSLog(@"datacount: %@", _dataLabel);
     switch (section) {
         case 0:
             dataCount = _dataLabel.count;

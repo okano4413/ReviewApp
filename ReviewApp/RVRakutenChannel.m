@@ -35,7 +35,7 @@
     }else{
         self.connectionUrlString = [NSString stringWithFormat:@"%@%@",self.apiUrlString, self.booksGenreId];
     }
-    NSLog(@"connectionURLString= %@",self.connectionUrlString);
+   // NSLog(@"connectionURLString= %@",self.connectionUrlString);
     
      
     [super session];
