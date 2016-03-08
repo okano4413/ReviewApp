@@ -18,10 +18,12 @@
 {
     NSString *keyword;
     NSInteger *genreId;
+    NSString *ngword;
 }
 
 @property (strong, nonatomic) NSString *keyword;
 @property (nonatomic) NSInteger genreId;
+@property (strong, nonatomic) NSString *ngword;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

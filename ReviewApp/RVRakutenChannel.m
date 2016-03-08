@@ -12,6 +12,7 @@
 
 @synthesize keyword = _keyword;
 @synthesize booksGenreId = _booksGanreId;
+@synthesize ngword = _ngword;
 
 -(id)init
 {
@@ -26,15 +27,22 @@
     return self;
 }
 
--(void)session:(NSString*)keyWord booksGenreId:(NSInteger *)genreId
+-(void)session:(NSString*)keyWord booksGenreId:(NSInteger)genreId ngWord:(NSString *)ngWord
 {
-    self.booksGenreId = [NSString stringWithFormat:@"%@%03zd",@"&booksGenreId=",genreId];
+    NSLog(@"rakutenchannel session");
+
+    NSString *searchInfoString = @"";
+    searchInfoString = [NSString stringWithFormat:@"%@%03zd",@"&booksGenreId=",genreId];
     if([keyWord length] != 0){
-        self.keyword = [NSString stringWithFormat:@"%@%@",@"&keyword=",[keyWord stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]];
-        self.connectionUrlString = [NSString stringWithFormat:@"%@%@%@",self.apiUrlString, self.keyword, self.booksGenreId];
-    }else{
-        self.connectionUrlString = [NSString stringWithFormat:@"%@%@",self.apiUrlString, self.booksGenreId];
+        searchInfoString = [NSString stringWithFormat:@"%@%@",@"&keyword=",[keyWord stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]];
     }
+    if([ngword length] != 0){
+        searchInfoString = [NSString stringWithFormat:@"%@%@",@"&NGKeyword=",[ngWord stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]]];
+    }
+    
+    self.connectionUrlString = [NSString stringWithFormat:@"%@%@",self.apiUrlString, searchInfoString];
+    NSLog(@"url = %@",self.connectionUrlString);
+    
    // NSLog(@"connectionURLString= %@",self.connectionUrlString);
     
      

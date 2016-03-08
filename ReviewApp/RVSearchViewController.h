@@ -11,6 +11,6 @@
 #import "RVUserDefault.h"
 #import "RVGenreTableController.h"
 
-@interface RVSearchViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate>
+@interface RVSearchViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate, UINavigationControllerDelegate>
     @property (nonatomic,strong) NSArray *dataLabel;
 @end

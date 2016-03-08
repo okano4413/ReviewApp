@@ -15,7 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [RVUserDefault sharedUserDefault];
+    //[RVUserDefault sharedUserDefault];
     
     // デリゲートメソッドをこのクラスで実装する
     self.tableView.delegate = self;

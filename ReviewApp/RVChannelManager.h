@@ -43,6 +43,7 @@
 - (void)load;
 - (void)save;
 
+- (void)searchItemDictionary:(NSDictionary *)searchItemDic;
 - (void)searchChannel:(NSString *)channel keyword:(NSString *)keyword booksGenreId:(NSInteger *)booksGenreId;
 - (void)removeChannelInfo:(NSUInteger *)index;
 

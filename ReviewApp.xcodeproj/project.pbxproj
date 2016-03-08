@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2930C9A71C8B4A5E00EBC683 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2930C9A61C8B4A5E00EBC683 /* TextFieldCell.xib */; };
+		2930C9AA1C8B4AFC00EBC683 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2930C9A91C8B4AFC00EBC683 /* TextFieldCell.m */; };
+		2930C9AD1C8B524F00EBC683 /* RVEditNGWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2930C9AC1C8B524F00EBC683 /* RVEditNGWordViewController.m */; };
+		2930C9B11C8B59E600EBC683 /* RVEditNGWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2930C9B01C8B59E600EBC683 /* RVEditNGWordViewController.xib */; };
 		299FC40B1C837C4900B58729 /* ico_grade6_0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 299FC3FE1C837C4900B58729 /* ico_grade6_0.gif */; };
 		299FC40C1C837C4900B58729 /* ico_grade6_1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 299FC3FF1C837C4900B58729 /* ico_grade6_1.gif */; };
 		299FC40D1C837C4900B58729 /* ico_grade6_1h.gif in Resources */ = {isa = PBXBuildFile; fileRef = 299FC4001C837C4900B58729 /* ico_grade6_1h.gif */; };
@@ -33,7 +37,6 @@
 		B1EE02221C55DB26003C8915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1EE02201C55DB26003C8915 /* Main.storyboard */; };
 		B1EE02241C55DB26003C8915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1EE02231C55DB26003C8915 /* Assets.xcassets */; };
 		B1EE02271C55DB26003C8915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1EE02251C55DB26003C8915 /* LaunchScreen.storyboard */; };
-		B1EE02301C55DCD2003C8915 /* RVSegmentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE022F1C55DCD2003C8915 /* RVSegmentedViewController.m */; };
 		B1EE02331C5751FE003C8915 /* RVSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE02321C5751FE003C8915 /* RVSearchViewController.m */; };
 		B1EE02391C577034003C8915 /* RVHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE02381C577034003C8915 /* RVHistoryViewController.m */; };
 		B1EE023C1C67863F003C8915 /* RVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE023B1C67863F003C8915 /* RVItem.m */; };
@@ -47,6 +50,12 @@
 
 /* Begin PBXFileReference section */
 		265BB851971E067B565CF577 /* Pods-ReviewApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReviewApp/Pods-ReviewApp.debug.xcconfig"; sourceTree = "<group>"; };
+		2930C9A61C8B4A5E00EBC683 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
+		2930C9A81C8B4AED00EBC683 /* TextFieldCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
+		2930C9A91C8B4AFC00EBC683 /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
+		2930C9AB1C8B523B00EBC683 /* RVEditNGWordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVEditNGWordViewController.h; sourceTree = "<group>"; };
+		2930C9AC1C8B524F00EBC683 /* RVEditNGWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVEditNGWordViewController.m; sourceTree = "<group>"; };
+		2930C9B01C8B59E600EBC683 /* RVEditNGWordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RVEditNGWordViewController.xib; sourceTree = "<group>"; };
 		2934E3D81C7ADE1A00CEE7D1 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		2934E3D91C7ADE1A00CEE7D1 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		2934E3DA1C7ADE1A00CEE7D1 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -117,8 +126,6 @@
 		B1EE02231C55DB26003C8915 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1EE02261C55DB26003C8915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1EE02281C55DB26003C8915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1EE022E1C55DCBA003C8915 /* RVSegmentedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVSegmentedViewController.h; sourceTree = "<group>"; };
-		B1EE022F1C55DCD2003C8915 /* RVSegmentedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVSegmentedViewController.m; sourceTree = "<group>"; };
 		B1EE02311C5751E9003C8915 /* RVSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVSearchViewController.h; sourceTree = "<group>"; };
 		B1EE02321C5751FE003C8915 /* RVSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVSearchViewController.m; sourceTree = "<group>"; };
 		B1EE02371C57701F003C8915 /* RVHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVHistoryViewController.h; sourceTree = "<group>"; };
@@ -252,7 +259,6 @@
 			children = (
 				29D5F1331C7C28CF0031FA03 /* Resource */,
 				B1EE024B1C71FBBC003C8915 /* View */,
-				B1EE023E1C678720003C8915 /* ViewModel */,
 				B1EE023D1C6786D7003C8915 /* Model */,
 				B1EE02171C55DB26003C8915 /* AppDelegate.h */,
 				B1EE02181C55DB26003C8915 /* AppDelegate.m */,
@@ -265,8 +271,6 @@
 				B1EE02251C55DB26003C8915 /* LaunchScreen.storyboard */,
 				B1EE02281C55DB26003C8915 /* Info.plist */,
 				B1EE02141C55DB26003C8915 /* Supporting Files */,
-				B1EE022E1C55DCBA003C8915 /* RVSegmentedViewController.h */,
-				B1EE022F1C55DCD2003C8915 /* RVSegmentedViewController.m */,
 				B1EE02311C5751E9003C8915 /* RVSearchViewController.h */,
 				B1EE02321C5751FE003C8915 /* RVSearchViewController.m */,
 				B1EE02371C57701F003C8915 /* RVHistoryViewController.h */,
@@ -275,6 +279,9 @@
 				B1EE02491C70DE68003C8915 /* RVSearchResultController.m */,
 				29D5F1591C7C5E7B0031FA03 /* RVGenreTableController.h */,
 				29D5F15A1C7C5E9C0031FA03 /* RVGenreTableController.m */,
+				2930C9AB1C8B523B00EBC683 /* RVEditNGWordViewController.h */,
+				2930C9AC1C8B524F00EBC683 /* RVEditNGWordViewController.m */,
+				2930C9B01C8B59E600EBC683 /* RVEditNGWordViewController.xib */,
 			);
 			path = ReviewApp;
 			sourceTree = "<group>";
@@ -308,18 +315,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		B1EE023E1C678720003C8915 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ViewModel;
-			sourceTree = "<group>";
-		};
 		B1EE024B1C71FBBC003C8915 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				B1EE024C1C71FC01003C8915 /* RVProductCell.h */,
 				B1EE024D1C71FC12003C8915 /* RVProductCell.m */,
+				2930C9A61C8B4A5E00EBC683 /* TextFieldCell.xib */,
+				2930C9A81C8B4AED00EBC683 /* TextFieldCell.h */,
+				2930C9A91C8B4AFC00EBC683 /* TextFieldCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -394,6 +397,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				299FC4101C837C4900B58729 /* ico_grade6_3.gif in Resources */,
+				2930C9B11C8B59E600EBC683 /* RVEditNGWordViewController.xib in Resources */,
+				2930C9A71C8B4A5E00EBC683 /* TextFieldCell.xib in Resources */,
 				299FC4191C837C8200B58729 /* search.png in Resources */,
 				299FC4131C837C4900B58729 /* ico_grade6_4h.gif in Resources */,
 				299FC40D1C837C4900B58729 /* ico_grade6_1h.gif in Resources */,
@@ -471,13 +476,14 @@
 			files = (
 				29F6F3B91C7AFB79004EB33F /* RVGetImage.m in Sources */,
 				B1EE02331C5751FE003C8915 /* RVSearchViewController.m in Sources */,
-				B1EE02301C55DCD2003C8915 /* RVSegmentedViewController.m in Sources */,
 				B1EE021F1C55DB26003C8915 /* SecondViewController.m in Sources */,
+				2930C9AA1C8B4AFC00EBC683 /* TextFieldCell.m in Sources */,
 				B1EE023C1C67863F003C8915 /* RVItem.m in Sources */,
 				B1EE02191C55DB26003C8915 /* AppDelegate.m in Sources */,
 				29D5F15E1C7EA85A0031FA03 /* RVUserDefault.m in Sources */,
 				B1EE02471C67A1DC003C8915 /* RVChannelManager.m in Sources */,
 				B1EE02411C67928F003C8915 /* RVChannel.m in Sources */,
+				2930C9AD1C8B524F00EBC683 /* RVEditNGWordViewController.m in Sources */,
 				B1EE024A1C70DE68003C8915 /* RVSearchResultController.m in Sources */,
 				299FC41C1C84406300B58729 /* RVImageCache.m in Sources */,
 				29D5F15B1C7C5E9C0031FA03 /* RVGenreTableController.m in Sources */,

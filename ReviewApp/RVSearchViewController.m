@@ -7,6 +7,7 @@
 //
 
 #import "RVSearchViewController.h"
+#import "RVEditNGWordViewController.h"
 
 @interface RVSearchViewController()
 
@@ -101,6 +102,8 @@
         // 再利用できない場合は新規で作成
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
                                       reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
     }
     
     switch (indexPath.section) {
@@ -123,8 +126,19 @@
 
 //cellが選択された時に呼ばれる
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.row == 0) {
-        [self performSegueWithIdentifier:@"GenreSelect" sender:self];
+    switch (indexPath.row) {
+        case 0:{
+            [self performSegueWithIdentifier:@"GenreSelect" sender:self];
+            NSLog(@"0 is selected");
+            }
+            break;
+        case 2:{
+            [self.navigationController pushViewController:[[RVEditNGWordViewController alloc] init] animated:YES];
+            NSLog(@"2 is selected");
+        }
+        break;
+        default:
+            break;
     }
 }
 
@@ -134,6 +148,11 @@
             NSInteger userGenre = [[RVUserDefault sharedUserDefault] getIntValueForKey:@"INT_GENREID"];
             cell.detailTextLabel.text = self.dataLabel[userGenre];
             }
+            break;
+        case 2:{
+            NSString *ngWord = [[RVUserDefault sharedUserDefault] getStringValueForKey:@"STR_NGWORD"];
+            cell.detailTextLabel.text = ngWord;
+        }
             break;
         default:
             break;
@@ -164,6 +183,7 @@
         RVSearchResultController *searchResultController = [segue destinationViewController];
         //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
         searchResultController.keyword = self.searchBar.text;
+        searchResultController.ngword = [[RVUserDefault sharedUserDefault] getStringValueForKey:@"STR_NGWORD"];
         searchResultController.genreId = [[RVUserDefault sharedUserDefault] getIntValueForKey:@"INT_GENREID"];
     }
 }

@@ -182,10 +182,22 @@ static RVChannelManager*  _sharedInstance = nil;
     [NSKeyedArchiver archiveRootObject:_channels toFile:channelPath];
 }
 
+- (void)searchItemDictionary:(NSDictionary *)searchItemDic {
+    NSString *channel = [searchItemDic objectForKey:@"channel"];
+    NSString *keyword = [searchItemDic objectForKey:@"keyword"];
+    NSString *ngWord = [searchItemDic objectForKey:@"ngword"];
+    NSInteger booksGenreId = [[searchItemDic objectForKey:@"booksGenreId"] intValue];
+    NSLog(@"searchItemDic %@", searchItemDic);
+
+    if([channel isEqualToString:@"rakuten"]){
+        [self doRakutenSession:keyword booksGenreId:booksGenreId ngWord:ngWord];
+    }
+}
+
 -(void)searchChannel:(NSString *)channel keyword:(NSString *)keyword booksGenreId:(NSInteger *)booksGenreId
 {
     //channelに応じて実行するsessionを変更する（未実装）
-    [self doRakutenSession:keyword booksGenreId:booksGenreId];
+    //[self doRakutenSession:keyword booksGenreId:booksGenreId];
     
 }
 - (void)removeChannelInfo:(NSUInteger *)index{
@@ -194,12 +206,14 @@ static RVChannelManager*  _sharedInstance = nil;
 }
 
 
--(void)doRakutenSession:(NSString *)keyword booksGenreId:(NSInteger *)booksGanreId
+-(void)doRakutenSession:(NSString *)keyword booksGenreId:(NSInteger)booksGanreId ngWord:(NSString *)ngWord
 {
+    NSLog(@"doRakutenSession");
+
     self.rakutenChannel = [[RVRakutenChannel alloc] init];
     self.rakutenChannel.delegate = self;
     
-    [self.rakutenChannel session:keyword booksGenreId:booksGanreId];
+    [self.rakutenChannel session:keyword booksGenreId:booksGanreId ngWord:ngWord];
     
 }
 

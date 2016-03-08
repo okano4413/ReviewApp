@@ -12,11 +12,13 @@
 {
     NSString *keyword;        //検索キーワード
     NSString *booksGenreId;   //ジャンルID
+    NSString *ngword;         //NGWord
 }
 
 @property (nonatomic, weak) NSString* keyword;
 @property (nonatomic, weak) NSString* booksGenreId;
+@property (nonatomic, weak) NSString* ngword;
 
--(void)session:(NSString *)keyWord booksGenreId:(NSInteger *)ganreId;
+-(void)session:(NSString *)keyWord booksGenreId:(NSInteger)ganreId ngWord:(NSString *)ngWord;
 -(id)setItemsFromJsonData:(NSData *)data;
 @end

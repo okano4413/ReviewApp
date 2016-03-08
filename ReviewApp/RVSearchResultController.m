@@ -8,10 +8,13 @@
 
 #import "RVSearchResultController.h"
 
-@implementation RVSearchResultController
+@implementation RVSearchResultController {
+    NSMutableDictionary *searchItemsDic;
+}
 
 @synthesize keyword = _keyword;
 @synthesize genreId = _genreId;
+@synthesize ngword = _ngword;
 
 @synthesize tableView = _tableView;
 @synthesize rakuten = _rakuten;
@@ -24,8 +27,14 @@
     // デリゲートメソッドをこのクラスで実装する
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    searchItemsDic = [[NSMutableDictionary alloc] init];
+    [searchItemsDic setObject:@"rakuten" forKey:@"channel"];
+    [searchItemsDic setObject:self.keyword forKey:@"keyword"];
+    [searchItemsDic setObject:self.ngword forKey:@"ngword"];
+    [searchItemsDic setObject:[NSNumber numberWithInteger:self.genreId] forKey:@"booksGenreId"];
+
     [RVChannelManager sharedManager].delegate = self;
-    [[RVChannelManager sharedManager] searchChannel:@"rakuten" keyword:self.keyword booksGenreId:self.genreId];
+    [[RVChannelManager sharedManager] searchItemDictionary:searchItemsDic];
 
 }
 
@@ -106,25 +115,9 @@
         // 再利用できない場合は新規で作成
         cell = [[RVProductCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:CellIdentifier];
+    }else{
+        [self updateCell:cell atIndexPath:indexPath];
     }
-  /*      switch (indexPath.section) {
-            case 0:{
-            //cell.titleLabel.text = self.rakuten.items[indexPath.row];
-            cell.titleLabel.text = item.title;
-            cell.reviewLabel.text = [NSString stringWithFormat:@"%@",item.reviewAverage];
-                //NSLog(@"itemImageUrl %@", item.itemImageUrl);
-            dispatch_async(queue, ^{
-            [cell setProductImageView:@"http://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9610/9784056109610.jpg?_ex=64x64"];
-            });
-            }
-            break;
-            //case 1:
-            //    cell.textLabel.text = self.dataSourceAndroid[indexPath.row];
-            //    break;
-        default:
-            break;
-    }
-   */ 
     return cell;
 }
 
